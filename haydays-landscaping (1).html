@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hay Days Landscaping — York, PA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1c3a28;
+    --green-mid: #2d5c3f;
+    --green-light: #4a8c62;
+    --stone: #b8a080;
+    --stone-light: #d4c4a8;
+    --cream: #f4efe6;
+    --cream-dark: #e8e0d0;
+    --charcoal: #1e1e1e;
+    --white: #fdfaf6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--charcoal);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(28, 58, 40, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,160,128,0.2);
+    animation: slideDown 0.8s ease both;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--stone-light);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--white); font-style: italic; }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--stone);
+    color: var(--charcoal) !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--stone-light) !important; color: var(--charcoal) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 680px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem 5rem;
+    background: var(--green-deep);
+    animation: fadeInLeft 1s ease 0.3s both;
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2.5rem; height: 1px;
+    background: var(--stone);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--stone-light);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--stone-light);
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--stone);
+    color: var(--charcoal);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--stone-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    color: var(--stone-light);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--stone);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-outline:hover { color: var(--white); border-color: var(--white); }
+
+  .hero-image {
+    position: relative; overflow: hidden;
+    animation: fadeInRight 1.1s ease 0.5s both;
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .hero-image::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, var(--green-deep) 0%, transparent 20%);
+  }
+
+  .hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85) contrast(1.05);
+  }
+
+  /* paver placeholder when no real image */
+  .paver-bg {
+    width: 100%; height: 100%;
+    background:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 90px),
+      linear-gradient(160deg, #3a3028 0%, #1e2820 50%, #2a3c2e 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+  }
+
+  .paver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(5, 55px);
+    gap: 4px;
+    opacity: 0.7;
+    transform: perspective(600px) rotateX(18deg) rotateZ(-3deg);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: perspective(600px) rotateX(18deg) rotateZ(-3deg) translateY(0); }
+    50% { transform: perspective(600px) rotateX(18deg) rotateZ(-3deg) translateY(-8px); }
+  }
+
+  .paver-cell {
+    background: linear-gradient(135deg, #8a9080 0%, #6a7468 40%, #8a7a68 100%);
+    border-radius: 1px;
+  }
+
+  .paver-cell:nth-child(odd) {
+    background: linear-gradient(135deg, #7a8878 0%, #5a6460 40%, #7a6a58 100%);
+  }
+
+  .paver-cell.dark {
+    background: linear-gradient(135deg, #2a3028 0%, #1e2820 100%);
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--green-mid);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(184,160,128,0.2);
+  }
+
+  .stat-item {
+    padding: 2.5rem;
+    border-right: 1px solid rgba(184,160,128,0.15);
+    text-align: center;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--stone-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-top: 0.4rem;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 5rem; }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block; width: 2rem; height: 1px;
+    background: var(--stone);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--stone-light); }
+
+  /* ── SERVICES ── */
+  .services { background: var(--charcoal); }
+
+  .services-grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(184,160,128,0.15);
+    border: 1px solid rgba(184,160,128,0.15);
+  }
+
+  .service-card {
+    background: var(--charcoal);
+    padding: 3rem 2.5rem;
+    transition: background 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--stone);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover { background: #252520; }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--stone);
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio { background: #181818; }
+
+  .portfolio-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: end;
+  }
+
+  .portfolio-intro p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--stone);
+    align-self: end;
+  }
+
+  .portfolio-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 300px 260px;
+    gap: 8px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--green-deep);
+    cursor: pointer;
+  }
+
+  .gallery-item:first-child {
+    grid-row: span 2;
+  }
+
+  .gallery-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.5rem;
+  }
+
+  .gallery-placeholder-1 {
+    background: linear-gradient(145deg, #2d4535 0%, #1a3028 60%, #3a4830 100%);
+  }
+  .gallery-placeholder-2 {
+    background: linear-gradient(145deg, #1e3525 0%, #2a4030 100%);
+  }
+  .gallery-placeholder-3 {
+    background: linear-gradient(145deg, #384030 0%, #2a3828 100%);
+  }
+  .gallery-placeholder-4 {
+    background: linear-gradient(145deg, #1e2820 0%, #2d3a28 100%);
+  }
+  .gallery-placeholder-5 {
+    background: linear-gradient(145deg, #2a3820 0%, #1e2e1e 100%);
+  }
+
+  .gallery-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(212,196,168,0.6);
+  }
+
+  .gallery-add {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(184,160,128,0.4);
+  }
+
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,58,40,0.9) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 1.5rem;
+  }
+
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .gallery-overlay-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+  }
+
+  /* ── PROCESS ── */
+  .process { background: var(--green-deep); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem; left: 2rem; right: 2rem;
+    height: 1px;
+    background: rgba(184,160,128,0.3);
+    z-index: 0;
+  }
+
+  .process-step {
+    padding: 0 2rem;
+    position: relative; z-index: 1;
+  }
+
+  .step-number {
+    width: 4rem; height: 4rem;
+    border-radius: 50%;
+    background: var(--green-deep);
+    border: 1px solid var(--stone);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--stone-light);
+    margin-bottom: 2rem;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .step-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--stone);
+  }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial-strip {
+    background: var(--stone);
+    padding: 5rem;
+    text-align: center;
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+
+  .testimonial-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(30,30,30,0.6);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--charcoal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .contact-info {
+    background: var(--green-mid);
+    padding: 7rem 5rem;
+  }
+
+  .contact-form-area {
+    background: #141414;
+    padding: 7rem 5rem;
+  }
+
+  .contact-details { margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem; }
+
+  .contact-detail {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+  }
+
+  .contact-detail-icon {
+    font-size: 1.2rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-detail-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-detail-value {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  .contact-detail-value a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-detail-value a:hover { color: var(--stone-light); }
+
+  /* Form */
+  .form-group { margin-bottom: 1.8rem; }
+
+  .form-group label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 0.6rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,160,128,0.2);
+    border-radius: 2px;
+    padding: 0.9rem 1.1rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--white);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--stone);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 130px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--stone);
+    color: var(--charcoal);
+    border: none;
+    padding: 1.1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .form-submit:hover { background: var(--stone-light); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-deep);
+    padding: 3rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(184,160,128,0.15);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--stone-light);
+  }
+
+  .footer-logo em { font-style: italic; color: var(--white); }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--stone);
+  }
+
+  .footer-copy a { color: var(--stone-light); text-decoration: none; }
+
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-image { height: 45vh; }
+    .hero-content { padding: 7rem 2rem 3rem; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 5rem 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-intro { grid-template-columns: 1fr; }
+    .portfolio-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: auto; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .process-steps::before { display: none; }
+    .contact { grid-template-columns: 1fr; }
+    .contact-info, .contact-form-area { padding: 4rem 2rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>Hay Days</span> Landscaping</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">York, PA · Est. 2015</div>
+    <h1 class="hero-title">
+      Crafted Ground.<br>
+      <em>Built to Last.</em>
+    </h1>
+    <p class="hero-desc">
+      Hay Days Landscaping specializes in premium hardscaping, paver installation, and outdoor transformations across Central Pennsylvania. Every project is built with precision — and finished with pride.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#portfolio" class="btn-outline">View Our Work →</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="paver-bg">
+      <div class="paver-grid">
+        <div class="paver-cell dark"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell dark"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell dark"></div>
+        <div class="paver-cell dark"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell dark"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell dark"></div>
+        <div class="paver-cell"></div>
+        <div class="paver-cell dark"></div>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;color:rgba(212,196,168,0.35);margin-top:1.5rem;letter-spacing:0.08em;">
+        Photo gallery coming soon
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item" style="animation-delay:0.1s">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Projects Completed</div>
+  </div>
+  <div class="stat-item" style="animation-delay:0.2s">
+    <div class="stat-number">10+</div>
+    <div class="stat-label">Years of Experience</div>
+  </div>
+  <div class="stat-item" style="animation-delay:0.3s">
+    <div class="stat-number">5★</div>
+    <div class="stat-label">Customer Satisfaction</div>
+  </div>
+  <div class="stat-item" style="animation-delay:0.4s">
+    <div class="stat-number">York</div>
+    <div class="stat-label">& Surrounding Counties</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Outdoor Spaces<br><em>Reimagined</em></h2>
+  </div>
+  <div class="services-grid reveal" style="transition-delay:0.2s">
+    <div class="service-card">
+      <span class="service-icon">🧱</span>
+      <div class="service-name">Paver Installation</div>
+      <p class="service-desc">Driveways, walkways, patios, and pool surrounds installed with precision and polymeric sand finishing for a result that holds for decades.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌿</span>
+      <div class="service-name">Landscape Design</div>
+      <p class="service-desc">Plantings, grading, mulching, and full landscape planning that complements your home and the natural terrain of Central PA.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🪨</span>
+      <div class="service-name">Retaining Walls</div>
+      <p class="service-desc">Structural retaining walls and decorative stone features that control erosion and add stunning visual character to any yard.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔧</span>
+      <div class="service-name">Paver Cleaning & Repair</div>
+      <p class="service-desc">Restore existing hardscaping with professional cleaning, re-sanding, and polymeric sand application — like new, for a fraction of replacement cost.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💧</span>
+      <div class="service-name">Drainage Solutions</div>
+      <p class="service-desc">French drains, grading, and stormwater management to protect your investment and keep your property dry through every Pennsylvania season.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌲</span>
+      <div class="service-name">Seasonal Services</div>
+      <p class="service-desc">Spring cleanups, fall leaf removal, mulch installation, and winterization to keep your property looking sharp year-round.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-intro reveal">
+    <div>
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Every Project<br><em>Tells a Story</em></h2>
+    </div>
+    <p>From simple paver cleanups to full outdoor living transformations, every Hay Days project is finished to the same standard — exceptional. Browse our portfolio and imagine what we can do for your home.</p>
+  </div>
+  <div class="portfolio-gallery reveal" style="transition-delay:0.15s">
+    <div class="gallery-item">
+      <div class="gallery-placeholder gallery-placeholder-1">
+        <div class="gallery-label">Featured Project</div>
+        <div class="gallery-add">Add your best photo here</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Paver Walkway · York, PA</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder gallery-placeholder-2">
+        <div class="gallery-label">Project Photo</div>
+        <div class="gallery-add">Upload image</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Patio Installation</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder gallery-placeholder-3">
+        <div class="gallery-label">Project Photo</div>
+        <div class="gallery-add">Upload image</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Retaining Wall</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder gallery-placeholder-4">
+        <div class="gallery-label">Project Photo</div>
+        <div class="gallery-add">Upload image</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Driveway Pavers</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder gallery-placeholder-5">
+        <div class="gallery-label">Project Photo</div>
+        <div class="gallery-add">Upload image</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Landscape Design</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="reveal">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Simple. <em>Transparent.</em><br>Professional.</h2>
+  </div>
+  <div class="process-steps reveal" style="transition-delay:0.2s">
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <div class="step-title">Free Consultation</div>
+      <p class="step-desc">We visit your property, listen to your vision, and assess the scope. No pressure, no obligation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <div class="step-title">Custom Proposal</div>
+      <p class="step-desc">You receive a clear, itemized quote with materials, timeline, and pricing — no surprises.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <div class="step-title">Expert Installation</div>
+      <p class="step-desc">Our crew arrives on schedule, works clean, and communicates with you throughout the project.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <div class="step-title">Final Walkthrough</div>
+      <p class="step-desc">We don't close a job until you're fully satisfied. Every detail is reviewed together before we leave.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-strip reveal">
+  <div class="testimonial-quote">
+    "Dustin and his crew transformed our backyard completely. The attention to detail on the paver installation was remarkable — neighbors keep asking who we used."
+  </div>
+  <div class="testimonial-author">— Homeowner · Spring Grove, PA</div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <div class="contact-info">
+    <div class="section-label" style="color:var(--stone-light)">Get in Touch</div>
+    <h2 class="section-title" style="font-size:2.5rem">Ready to<br><em>Start Your Project?</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;line-height:1.8;color:var(--stone-light);margin-top:1rem;max-width:380px;">
+      Whether you need a single paver cleaned or a full outdoor living space built from scratch — we're here for it. Call, text, or fill out the form.
+    </p>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <span class="contact-detail-icon">📞</span>
+        <div>
+          <div class="contact-detail-label">Phone / Text</div>
+          <div class="contact-detail-value"><a href="tel:7178931694">(717) 893-1694</a></div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-icon">📍</span>
+        <div>
+          <div class="contact-detail-label">Service Area</div>
+          <div class="contact-detail-value">York, PA & Surrounding Counties</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-icon">🕐</span>
+        <div>
+          <div class="contact-detail-label">Hours</div>
+          <div class="contact-detail-value">Mon–Sat · 7AM – 6PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-area">
+    <div class="section-label">Request a Quote</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Tyrone">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="James">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(717) 000-0000">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label>Service Needed</label>
+      <select>
+        <option value="">Select a service...</option>
+        <option>Paver Installation</option>
+        <option>Paver Cleaning & Repair</option>
+        <option>Retaining Wall</option>
+        <option>Landscape Design</option>
+        <option>Drainage Solutions</option>
+        <option>Seasonal Services</option>
+        <option>Other / Not Sure</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tell Us About Your Project</label>
+      <textarea placeholder="Describe what you have in mind — size, location, timeline, anything helpful..."></textarea>
+    </div>
+    <button class="form-submit" onclick="this.textContent='✓ Request Sent!'; this.style.background='var(--green-light)';">
+      Send My Quote Request
+    </button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><em>Hay Days</em> Landscaping</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">
+    © 2026 Hay Days Landscaping · York, PA · <a href="tel:7178931694">(717) 893-1694</a><br>
+    <span style="font-size:0.72rem;opacity:0.6;">Website by <a href="#">Real Prices LLC</a></span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
